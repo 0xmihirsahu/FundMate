@@ -1,6 +1,6 @@
 "use client";
 
-import { ChatBubble, ChatBubbleAction, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat/chat-bubble";
+import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat/chat-bubble";
 import { ChatInput } from "@/components/ui/chat/chat-input";
 import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 import { Button } from "@/components/ui/button";
