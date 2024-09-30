@@ -5,9 +5,7 @@
 
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import { AccountInfo } from "@/components/AccountInfo";
 import { Header } from "@/components/Header";
-import { MessageBoard } from "@/components/MessageBoard";
 // Internal Components
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
