@@ -11,21 +11,6 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CodeDisplayBlock from "@/components/ui/code-display-block";
 
-const ChatAiIcons = [
-  {
-    icon: CopyIcon,
-    label: "Copy",
-  },
-  {
-    icon: RefreshCcw,
-    label: "Refresh",
-  },
-  {
-    icon: Volume2,
-    label: "Volume",
-  },
-];
-
 interface Message {
   id: string;
   createdAt?: Date;
