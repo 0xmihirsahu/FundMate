@@ -4,10 +4,9 @@ import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui
 import { ChatInput } from "@/components/ui/chat/chat-input";
 import { ChatMessageList } from "@/components/ui/chat/chat-message-list";
 import { Button } from "@/components/ui/button";
-import { CopyIcon, CornerDownLeft, Mic, Paperclip, RefreshCcw, Send, Volume2 } from "lucide-react";
+import { CopyIcon, RefreshCcw, Volume2 } from "lucide-react";
 import { useChat } from "ai/react";
-import { useEffect, useRef, useState } from "react";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { useEffect, useRef } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import CodeDisplayBlock from "@/components/ui/code-display-block";
@@ -34,6 +33,7 @@ interface Message {
   tool_call_id?: string;
   role: "user" | "friend";
 }
+
 export default function Message() {
   const { messages, setMessages, input, handleInputChange, handleSubmit, isLoading, reload } = useChat({});
 
@@ -48,13 +48,12 @@ export default function Message() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const userMessage: Message = {
-      id: crypto.randomUUID(), // Generate a unique ID for each message
+      id: crypto.randomUUID(),
       content: input,
       createdAt: new Date(),
       role: "user",
     };
 
-    // Add the user's message to the array
     setMessages([...messages, userMessage]);
     e.preventDefault();
     handleSubmit(e);
@@ -89,7 +88,6 @@ export default function Message() {
   return (
     <main className="flex h-screen w-full max-w-3xl flex-col items-center mx-auto py-6">
       <ChatMessageList ref={messagesRef}>
-        {/* Messages */}
         {messages &&
           messages.map((message, index) => (
             <ChatBubble key={index} variant={message.role == "user" ? "sent" : "received"}>
@@ -113,8 +111,6 @@ export default function Message() {
               </ChatBubbleMessage>
             </ChatBubble>
           ))}
-
-        {/* Loading */}
       </ChatMessageList>
       <div className="w-full px-4">
         <div className="flex gap-4 mb-5">
